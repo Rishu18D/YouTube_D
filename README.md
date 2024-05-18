@@ -53,3 +53,38 @@ This project is a simple YouTube downloader web application that allows users to
 
 ## Project Structure
 
+.
+├── Server
+│ ├── .gitignore
+│ ├── index.js
+│ ├── package.json
+├── index.html
+├── script.js
+├── style.css
+
+
+
+- `Server/index.js`: The backend server code.
+- `index.html`: The main HTML file for the frontend.
+- `script.js`: The JavaScript file handling frontend logic.
+- `style.css`: The CSS file for styling the frontend.
+
+## Contributing
+
+If you wish to contribute to this project, please fork the repository and submit a pull request. For major changes, please open an issue first to discuss what you would like to change.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Acknowledgements
+
+- [ytdl-core](https://www.npmjs.com/package/ytdl-core) for YouTube video downloading.
+- [fluent-ffmpeg](https://www.npmjs.com/package/fluent-ffmpeg) for processing video and audio.
+
+## Contact
+
+For any questions or inquiries, please contact [Your Name] at [your email].
+
+
+
