@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const btn = document.getElementById('btn');
     const urlInput = document.querySelector('.URL-input');
     const select = document.querySelector('.opt');
-    const videoContainer = document.getElementById('video-container');
     const serverURL = 'http://localhost:4000';
 
     btn.addEventListener('click', async () => {
@@ -12,16 +11,15 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             validateInput(videoUrl);
 
-            const response = await fetch(`${serverURL}/download${videoType}?url=${encodeURIComponent(videoUrl)}`);
-
-            if (!response.ok) {
-                throw new Error(`HTTP error: ${response.status}`);
-            }
-
-            const blob = await response.blob();
-            const objectUrl = URL.createObjectURL(blob);
-
-            displayVideo(objectUrl);
+            const downloadUrl = `${serverURL}/download${videoType}?url=${encodeURIComponent(videoUrl)}`;
+            
+            // Create an anchor element to force download
+            const anchor = document.createElement('a');
+            anchor.href = downloadUrl;
+            anchor.download = true;
+            document.body.appendChild(anchor);
+            anchor.click();
+            document.body.removeChild(anchor);
 
         } catch (error) {
             handleFetchError(error);
@@ -38,19 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function displayVideo(url) {
-        const videoElement = document.createElement('video');
-        videoElement.src = url;
-        videoElement.controls = true;
-
-        clearVideoContainer();
-        videoContainer.appendChild(videoElement);
-    }
-
-    function clearVideoContainer() {
-        videoContainer.innerHTML = '';
-    }
-
     function handleFetchError(error) {
         console.error('Fetch error:', error);
         showAlert('An error occurred. Please try again later.');
@@ -61,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function isValidURL(input) {
-        // Implement a simple URL validation logic based on your requirements
-        return true;
+        const regex = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/;
+        return regex.test(input);
     }
 });

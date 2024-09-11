@@ -1,27 +1,20 @@
-/* style.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Poppins', sans-serif;
     background-color: #f0f0f0;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
 }
 
 .container {
-    text-align: center;
+    max-width: 600px;
 }
 
 .heading {
-    color: #333;
-    font-size: 36px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: 3rem;
+    font-weight: 600;
+    color: #4a4a4a;
 }
 
 .input-container {
@@ -30,44 +23,51 @@ body {
 
 .URL-input,
 .opt {
-    width: 80%;
-    padding: 10px;
-    margin: 10px 0;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
     box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 5px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
     font-size: 16px;
     outline: none;
 }
 
-.URL-input::placeholder,
-.opt::placeholder {
+.URL-input::placeholder {
     color: #999;
 }
 
 .convert-button {
-    background-color: #ff5a5f;
+    background-color: #6366f1;
     color: white;
-    padding: 12px 24px;
+    padding: 15px;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     font-size: 18px;
     transition: background-color 0.3s ease;
 }
 
 .convert-button:hover {
-    background-color: #e0484e;
+    background-color: #4f46e5;
 }
 
-#video-container {
-    margin-top: 20px;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    overflow: hidden;
+/* Animation for smooth fade-in */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* Responsive Design */
+.animate-fadeInUp {
+    animation: fadeInUp 1s ease-in-out;
+}
+
 @media (max-width: 600px) {
     .URL-input,
     .opt,

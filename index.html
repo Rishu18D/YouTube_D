@@ -2,23 +2,40 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="./style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YouTube Downloader</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
 </head>
 
-<body>
-    <div class="container">
-        <h1 class="heading">YouTube Downloader</h1>
-        <div class="input-container">
-            <input class="URL-input" placeholder="https://www.youtube.com/watch?v=MtN1YnoL46Q">
-            <select class="opt">
-                <option value="mp3">MP3</option>
-                <option value="mp4">MP4</option>
-            </select>
-            <button class="convert-button" id="btn">Convert</button>
+<body class="bg-gradient-to-br from-blue-500 to-purple-600 min-h-screen flex items-center justify-center">
+    <div class="container mx-auto text-center">
+        <div class="bg-white p-8 rounded-lg shadow-lg animate-fadeInUp">
+            <img src="https://img.icons8.com/?size=100&id=36908&format=png&color=000000" alt="Logo"
+                class="w-24 mx-auto mb-4 animate-pulse">
+            <h1 class="text-4xl font-bold text-gray-800 mb-4">YouTube Downloader</h1>
+
+            <div class="input-container">
+                <input class="URL-input block w-full px-4 py-3 mb-4 border border-gray-300 rounded-lg text-gray-700"
+                    placeholder="Enter YouTube URL" id="url-input">
+                <select
+                    class="opt block w-full px-4 py-3 mb-4 border border-gray-300 rounded-lg text-gray-700 bg-white focus:outline-none">
+                    <option value="mp3">Download as MP3</option>
+                    <option value="mp4">Download as MP4</option>
+                </select>
+                <button class="convert-button w-full bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition duration-300 ease-in-out"
+                    id="btn">
+                    Convert & Download
+                </button>
+            </div>
+
+            <div id="video-container" class="mt-6 text-center hidden">
+                <!-- Video preview will appear here -->
+            </div>
         </div>
-        <div id="video-container"></div>
     </div>
+
     <script defer src="./script.js"></script>
 </body>
 

@@ -1,20 +1,24 @@
 {
-  "name": "server",
+  "name": "youtube-downloader-server",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "YouTube",
+    "Downloader",
+    "Node.js"
+  ],
+  "author": "Your Name",
   "type": "module",
   "license": "ISC",
-  "description": "",
+  "description": "A simple YouTube downloader server",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.19.2",
-    "nodemon": "^3.1.0",
-    "ytdl-core": "^4.11.5"
+    "dotenv": "^16.4.5",
+    "express": "^4.20.0",
+    "nodemon": "^3.1.4",
+    "play-dl": "^1.4.7"  
   }
 }
